@@ -1,6 +1,11 @@
 {
     "organization_name" : "name",
     "inn": "348986",
+    "bank_account" : "39848",
+	"correspondent_account" : "39848",
+	"bik" : "39488",
+	"ownership_form" : "type",
+    
     "default_report_format": 1,
     "report_handlers": [
         {
