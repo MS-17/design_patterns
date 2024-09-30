@@ -1,6 +1,6 @@
 import os, json
 
-from src.models.settings import Settings
+from src.models.settings_model import Settings
 
 
 class SettingsManager:
