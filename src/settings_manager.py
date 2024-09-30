@@ -1,6 +1,6 @@
 import os, json
 
-from models.settings import Settings
+from src.models.settings import Settings
 
 
 class SettingsManager:
@@ -17,6 +17,9 @@ class SettingsManager:
 			self.__settings = self.__default_settings()
 
 	def __default_settings(self) -> Settings:
+		"""
+		Set default settings
+		"""
 		_settings = Settings()
 		_settings.organization_name = "Org"
 		_settings.inn = "11111"
@@ -26,33 +29,40 @@ class SettingsManager:
 		_settings.ownership_form = "55555"
 		return _settings
 
-	"""
-	Get file name that contains settings
-	"""
 	@property
-	def file_name(self) -> Settings:
-		# do we need a setter for that?
+	def file_name(self) -> str:
+		"""
+		Get a file name that contains settings
+		"""
 		return self.__file_name
 
-	"""
-	Get settings
-	"""
+	@file_name.setter
+	def file_name(self, value: str) -> None:
+		"""
+		Set a file name 
+		"""
+		self.__file_name = value
+
 	@property
-	def settings(self) -> str:
+	def settings(self) -> Settings:
+		"""
+		Get settings
+		"""
 		return self.__settings
 
-	"""
-	Load settings from a json file and fill 'Settings' fields with its values
-	"""
-	def load_settings(self, file_name: str = None) -> None:
-		print(os.curdir, __file__)
-		
-
+	def load_settings(self, file_name: str = "") -> None:
+		"""
+		Load settings from a json file and fill 'Settings' fields with its values
+		"""
+		self.file_name = file_name
+		current_path = os.path.split(__file__)[0]
+		full_name = f"{current_path}{os.sep}{self.file_name}"
+		with open(file_name, 'r') as file:
+			data = json.load(file)
+		fields = dir(self.settings)
+		for field in fields:
+			if field in data.keys():
+				self.settings.__setattr__(field, data[field])
 
 	def __str__(self) -> str:
 		return f"File name: {self.file_name}, Settings: ({self.settings})"
-
-sm = SettingsManager()
-print(sm.load_settings())
-
-
