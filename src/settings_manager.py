@@ -17,9 +17,7 @@ class SettingsManager:
 			self.__settings = self.__default_settings()
 
 	def __default_settings(self) -> Settings:
-		"""
-		Set default settings
-		"""
+		""" Set default settings """
 		_settings = Settings()
 		_settings.organization_name = "Org"
 		_settings.inn = "11111"
@@ -31,23 +29,17 @@ class SettingsManager:
 
 	@property
 	def file_name(self) -> str:
-		"""
-		Get a file name that contains settings
-		"""
+		"""	Get a file name that contains settings """
 		return self.__file_name
 
 	@file_name.setter
 	def file_name(self, value: str) -> None:
-		"""
-		Set a file name 
-		"""
+		""" Set a file name """
 		self.__file_name = value
 
 	@property
 	def settings(self) -> Settings:
-		"""
-		Get settings
-		"""
+		""" Get settings """
 		return self.__settings
 
 	def load_settings(self, file_name: str = "") -> None:
