@@ -55,9 +55,10 @@ class SettingsManager:
 		Load settings from a json file and fill 'Settings' fields with its values
 		"""
 		self.file_name = file_name
-		current_path = os.path.split(__file__)[0]
+		current_path = os.getcwd()
+		# current_path = os.path.split(__file__)[0]
 		full_name = f"{current_path}{os.sep}{self.file_name}"
-		with open(file_name, 'r') as file:
+		with open(full_name, 'r') as file:
 			data = json.load(file)
 		fields = dir(self.settings)
 		for field in fields:

@@ -1,4 +1,13 @@
 class Settings():
+	"""
+	A class that contains app settings
+	organization_name: str = ""
+	inn: str = ""
+	bank_account: str = ""
+	correspondent_account: str = ""
+	bik: str = ""
+	ownership_form: str = ""
+	"""
 	__organization_name: str = ""
 	__inn: str = ""
 	__bank_account: str = ""

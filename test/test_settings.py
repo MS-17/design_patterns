@@ -1,5 +1,8 @@
-import pytest
+import pytest, os, json
+# import unittest
 from src.models.settings import Settings
+from src.settings_manager import SettingsManager
+
 
 class TestSettingsModel:
 	def test_settings(self):
@@ -16,4 +19,18 @@ class TestSettingsModel:
 		assert s.correspondent_account == "39848"
 		assert s.bik == "39488"
 		assert s.ownership_form == "type"
+
+	@pytest.mark.parametrize("settings_path", ["configuration/settings.json", "configuration/config.json"])
+	def test_settings_manager_load_settings(self, settings_path):
+		settings_manager = SettingsManager()
+		settings_manager.load_settings(settings_path)
+		settings = settings_manager.settings
+		with open(settings_path, 'r') as file:
+			data = json.load(file)
+		assert settings.organization_name == data["organization_name"]
+		assert settings.inn == data["inn"]
+		assert settings.bank_account == data["bank_account"]
+		assert settings.correspondent_account == data["correspondent_account"]
+		assert settings.bik == data["bik"]
+		assert settings.ownership_form == data["ownership_form"]
 		
