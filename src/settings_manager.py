@@ -1,9 +1,12 @@
 import os, json
 
-from src.models.settings_model import Settings
+from src.models.settings.settings_model import Settings
 
 
 class SettingsManager:
+	"""
+	A class that loads settings and manages them
+	"""
 	__file_name: str = ""
 	__settings: Settings = None
 
@@ -13,6 +16,7 @@ class SettingsManager:
 		return cls.instance
 
 	def __init__(self) -> None:
+		"""dslkf"""
 		if self.__settings is None:
 			self.__settings = self.__default_settings()
 

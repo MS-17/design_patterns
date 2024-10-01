@@ -1,6 +1,6 @@
 import pytest, os, json
 # import unittest
-from src.models.settings import Settings
+from src.models.settings_model import Settings
 from src.settings_manager import SettingsManager
 
 
