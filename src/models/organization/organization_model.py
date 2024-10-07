@@ -3,11 +3,12 @@ from src.models.settings.settings_model import Settings
 
 
 class Organization(BaseModelName):
-	def __init__(self, settings: Settings):
-		"""
-		Initialize an organization model\n
-		settings: Settings - a settings object
-		"""
+	"""
+	Initialize an organization model\n
+	settings: Settings - a settings object
+	"""
+	
+	def __init__(self, settings: Settings) -> None:
 		super().__init__(settings.organization_name)
 		self.__inn = settings.inn
 		self.__bik = settings.bik

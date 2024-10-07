@@ -16,7 +16,7 @@ class AbstractReference(ABC):
 	@property
 	def unique_id(self) -> str:
 		""" Get an instance unique identifier in hex """
-		return self.__unique_id.hex
+		return self.__unique_id
 	
 	# @property
 	# def name(self) -> str:
@@ -28,7 +28,7 @@ class AbstractReference(ABC):
 
 	# todo make base models
 	@abstractmethod
-	def set_compare_mode(self, other_object) -> bool:
+	def set_compare_mode(self, other_object: object) -> bool:
 		""" Compare this class instance with another class instance """
 		if other_object is None: return False
 		if not isinstance(other_object, AbstractReference): return False

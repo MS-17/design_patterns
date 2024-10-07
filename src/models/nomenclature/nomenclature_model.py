@@ -11,12 +11,14 @@ class Nomenclature(BaseModelUniqueID):
 	measurement_unit: MeasurementUnit - a measurement unit\n
 	"""
 
-	def __init__(self, name: str, nomenclature_group: NomenclatureGroup, measurement_unit: MeasurementUnit):
+	def __init__(self, name: str, full_name: str, nomenclature_group: NomenclatureGroup, measurement_unit: MeasurementUnit) -> None:
 		super().__init__(name)
+		self.__full_name = full_name
 		self.__nomenclature_group = nomenclature_group
 		self.__measurement_unit = measurement_unit
 
-	def set_compare_mode(self, other_object):
+	def set_compare_mode(self, other_object: object) -> bool:
+		""" Compare this class instance with another class instance by unique id """
 		return super().set_compare_mode(other_object)
 
 	def __eq__(self, obj: object) -> bool:

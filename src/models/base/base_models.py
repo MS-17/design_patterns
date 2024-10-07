@@ -1,4 +1,4 @@
-from src.models.base import AbstractReference
+from src.models.base.abstract_reference import AbstractReference
 
 
 class BaseModelName(AbstractReference):
@@ -19,7 +19,8 @@ class BaseModelName(AbstractReference):
 	def name(self, value: str) -> None:
 		self.__name = value
 
-	def set_compare_mode(self, other_object) -> bool:
+	def set_compare_mode(self, other_object: object) -> bool:
+		""" Compare this class instance with another class instance by name """
 		if other_object is None: return False
 		if not isinstance(other_object, BaseModelName): return False
 		return self.name == other_object.name
@@ -30,6 +31,7 @@ class BaseModelUniqueID(AbstractReference):
 	A base class that implements the compare instances by unique id functionality 
 	"""
 
-	def set_compare_mode(self, other_object) -> bool:
+	def set_compare_mode(self, other_object: object) -> bool:
+		""" Compare this class instance with another class instance by unique id """
 		return super().set_compare_mode(other_object)
 	

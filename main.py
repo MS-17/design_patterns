@@ -1,7 +1,9 @@
 from src.settings_manager import SettingsManager
 from src.models.nomenclature.nomenclature_model import Nomenclature
 from src.models.base.base_models import BaseModelName, BaseModelUniqueID
-from src.models.nomenclature_group_model import NomenclatureGroup
+from src.models.nomenclature.nomenclature_group_model import NomenclatureGroup
+from src.validation.data_validator import DataValidator
+
 
 # print("Program main entry")
 # sm = SettingsManager()
@@ -21,3 +23,5 @@ print(bn == buid)
 print(buid.set_compare_mode(bn), buid == bn)
 print(buid.unique_id, bn.unique_id)
 print(nm.unique_id)
+
+# DataValidator().validate_length("", -1)

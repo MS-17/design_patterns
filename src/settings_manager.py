@@ -16,7 +16,6 @@ class SettingsManager:
 		return cls.instance
 
 	def __init__(self) -> None:
-		"""dslkf"""
 		if self.__settings is None:
 			self.__settings = self.__default_settings()
 

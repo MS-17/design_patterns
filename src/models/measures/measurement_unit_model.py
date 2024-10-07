@@ -6,20 +6,18 @@ class MeasurementUnit(BaseModelName):
 	# __base_measure_unit: MeasurementUnit = None
 
 	"""
-	A class that defines measurement units
+	A class that defines measurement units\n
+	name - a unit name (имя ед. изм.)\n
+	value - коэф пересчета\n
+	base_unit - базовая единица измерения \n
+	Ex:\n
+		base_unit = MeasurementUnit("gram", 1)\n
+		unit = MeasurementUnit("kilogram", 1000, base_unit)\n
 	"""
 
-	def __init__(self, name: str, value: float, base_unit: 'MeasurementUnit' = None):
-		"""
-		name - a unit name (имя ед. изм.)
-		value - коэф пересчета
-		base_unit - базовая единица измерения 
-		Ex:
-			base_unit = MeasurementUnit("gram", 1)
-			unit = MeasurementUnit("kilogram", 1000, base_unit)
-		"""
+	def __init__(self, name: str, value: float, base_unit: 'MeasurementUnit' = None) -> None:
 		super().__init__(name)
-		self.__value = base_unit
+		self.__value = value
 		self.__base_unit = base_unit
 	
 	@property
