@@ -1,7 +1,6 @@
-import pytest, os, json
+import pytest
 
 from src.models.settings.settings_model import Settings
-from src.settings_manager import SettingsManager
 from src.exceptions.argument_exception import ArgumentException
 
 

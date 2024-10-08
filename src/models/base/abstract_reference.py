@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+import uuid
 
 
 class AbstractReference(ABC):
@@ -6,18 +7,20 @@ class AbstractReference(ABC):
 	An abstract class for all models\n
 	unique_id: str - an instance unique identifier
 	"""
-	__unique_id: str = ""
-	# __unique_id: str = uuid.uuid4()
-	# __name: str = ""
 
-	# def __init__(self, name: str = ""):
-	# 	self.__name = name
+	def __init__(self) -> None:
+		super().__init__()
+		self.__unique_id: str = uuid.uuid4().hex
 
 	@property
 	def unique_id(self) -> str:
 		""" Get an instance unique identifier in hex """
 		return self.__unique_id
 	
+	@unique_id.setter
+	def unique_id(self, value: str) -> None:
+		self.__unique_id = value
+
 	# @property
 	# def name(self) -> str:
 	# 	return self.__name
@@ -26,7 +29,6 @@ class AbstractReference(ABC):
 	# def name(self, value: str) -> None:
 	# 	self.__name = value
 
-	# todo make base models
 	@abstractmethod
 	def set_compare_mode(self, other_object: object) -> bool:
 		""" Compare this class instance with another class instance """

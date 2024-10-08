@@ -17,9 +17,9 @@ class Nomenclature(BaseModelUniqueID):
 		self.__nomenclature_group = nomenclature_group
 		self.__measurement_unit = measurement_unit
 
-	def set_compare_mode(self, other_object: object) -> bool:
-		""" Compare this class instance with another class instance by unique id """
-		return super().set_compare_mode(other_object)
+	# def set_compare_mode(self, other_object: object) -> bool:
+	# 	""" Compare this class instance with another class instance by unique id """
+	# 	return super().set_compare_mode(other_object)
 
-	def __eq__(self, obj: object) -> bool:
-		return self.set_compare_mode(obj)
+	# def __eq__(self, obj: object) -> bool:
+	# 	return self.set_compare_mode(obj)

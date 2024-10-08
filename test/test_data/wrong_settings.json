@@ -1,0 +1,24 @@
+{
+    "organization_name" : "name",
+    "inn": "348983489348399348396",
+    "bank_account" : "398483948394384983948",
+	"correspondent_account" : "398483948394384983948",
+	"bik" : "394883948934839483943",
+	"ownership_form" : "typeladskjf",
+    
+    "default_report_format": 1,
+    "report_handlers": [
+        {
+            "type": 1,
+            "handler": "csv_report"
+        },
+        {
+            "type": 2,
+            "handler": "xml_report"
+        },
+        {
+            "type": 3,
+            "handler": "json_report"
+        }
+    ]
+}

@@ -1,6 +1,7 @@
 from src.exceptions.argument_exception import ArgumentException
 from typing import Any
 
+
 class DataValidator:
 	"""
 	A class that validates object type and length
