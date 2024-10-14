@@ -12,6 +12,7 @@ class BaseModelName(AbstractReference):
 	def __init__(self, name: str = "") -> None:
 		super().__init__()
 		DataValidator().validate_field_type(name, str)
+		DataValidator().validate_length(name, 50)
 		self.__name = name
 	
 	@property
@@ -21,6 +22,7 @@ class BaseModelName(AbstractReference):
 	@name.setter
 	def name(self, value: str) -> None:
 		DataValidator().validate_field_type(value, str)
+		DataValidator().validate_length(value, 50)
 		self.__name = value
 
 	def set_compare_mode(self, other_object: object) -> bool:

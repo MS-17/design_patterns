@@ -10,9 +10,13 @@ class TestBaseModelName:
 		bmn = BaseModelName(name)
 		assert bmn.name == name
 	
-	def test_invalid_name_type(self):
+	def test_init_invalid_name_type(self):
 		with pytest.raises(ArgumentException):
 			bmn = BaseModelName(1)
+
+	def test_init_invalid_name_length(self):
+		with pytest.raises(ArgumentException):
+			bmn = BaseModelName("1" * 60)
 
 	def test_name_setter(self):
 		name = "some name"
@@ -24,6 +28,11 @@ class TestBaseModelName:
 		bmn = BaseModelName()
 		with pytest.raises(ArgumentException):
 			bmn.name = 1.0
+	
+	def test_name_setter_invalid_name_length(self):
+		bmn = BaseModelName()
+		with pytest.raises(ArgumentException):
+			bmn.name = "1" * 60
 	
 	def test_unique_id(self):
 		bmn1 = BaseModelName()

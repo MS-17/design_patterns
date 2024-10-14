@@ -10,6 +10,10 @@ class TestDataValidator:
 		dv = DataValidator().validate_field_type(value, str)
 		assert dv == True
 
+	def test_validate_field_type_nullability(self):
+		value = None
+		assert DataValidator().validate_field_type(value, str, True) == True
+
 	def test_validate_field_type_fail(self):
 		value = "a"
 		with pytest.raises(ArgumentException):
