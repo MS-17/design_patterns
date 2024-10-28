@@ -29,7 +29,7 @@ class Settings:
 	@organization_name.setter
 	def organization_name(self, value: str) -> None:
 		""" Set and validate organization name """
-		DataValidator().validate_field_type(value, str)
+		DataValidator.validate_field_type(value, str)
 		self.__organization_name = value
 
 	@property
@@ -40,8 +40,8 @@ class Settings:
 	@inn.setter
 	def inn(self, value: str) -> None:
 		""" Set and validate INN """
-		DataValidator().validate_field_type(value, str)
-		DataValidator().validate_length(value, 12)
+		DataValidator.validate_field_type(value, str)
+		DataValidator.validate_length(value, 12)
 		self.__inn = value
 
 	@property
@@ -52,8 +52,8 @@ class Settings:
 	@bank_account.setter
 	def bank_account(self, value: str) -> None:
 		""" Set and validate bank account """
-		DataValidator().validate_field_type(value, str)
-		DataValidator().validate_length(value, 11)
+		DataValidator.validate_field_type(value, str)
+		DataValidator.validate_length(value, 11)
 		self.__bank_account = value
 
 	@property
@@ -64,8 +64,8 @@ class Settings:
 	@correspondent_account.setter
 	def correspondent_account(self, value: str) -> None:
 		""" Set and validate correspondent account """
-		DataValidator().validate_field_type(value, str)
-		DataValidator().validate_length(value, 11)
+		DataValidator.validate_field_type(value, str)
+		DataValidator.validate_length(value, 11)
 		self.__correspondent_account = value
 
 	@property
@@ -76,8 +76,8 @@ class Settings:
 	@bik.setter
 	def bik(self, value: str) -> None:
 		""" Set and validate BIK """
-		DataValidator().validate_field_type(value, str)
-		DataValidator().validate_length(value, 9)
+		DataValidator.validate_field_type(value, str)
+		DataValidator.validate_length(value, 9)
 		self.__bik = value
 
 	@property
@@ -88,8 +88,8 @@ class Settings:
 	@ownership_form.setter
 	def ownership_form(self, value: str) -> None:
 		""" Set and validate ownership form """
-		DataValidator().validate_field_type(value, str)
-		DataValidator().validate_length(value, 5)
+		DataValidator.validate_field_type(value, str)
+		DataValidator.validate_length(value, 5)
 		self.__ownership_form = value
 
 	def __str__(self) -> str:

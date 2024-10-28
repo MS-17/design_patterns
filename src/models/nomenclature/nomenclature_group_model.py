@@ -1,4 +1,5 @@
 from src.models.base.base_models import BaseModelName
+from src.validation.data_validator import DataValidator
 
 
 class NomenclatureGroup(BaseModelName):
@@ -7,15 +8,9 @@ class NomenclatureGroup(BaseModelName):
 	"""
 
 	@staticmethod
-	def default_group_raw_materials():
-		""" Default nomenclature group raw materials (сырье) (factory method) """
+	def create(name: str = "") -> 'NomenclatureGroup':
+		""" Create a nomenclature group instance with the given name (factory staticmethod) """
+		DataValidator.validate_field_type(name, str)
 		item = NomenclatureGroup()
-		item.name = "Raw materials"
-		return item
-
-	@staticmethod
-	def default_group_frozen_items():
-		""" Default nomenclature group frozen items (заморозка) (factory method) """
-		item = NomenclatureGroup()
-		item.name = "Frozen items"
+		item.name = name
 		return item

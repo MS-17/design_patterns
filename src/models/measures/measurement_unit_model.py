@@ -14,9 +14,9 @@ class MeasurementUnit(BaseModelName):
 	"""
 
 	def __init__(self, name: str, value: float, base_unit: 'MeasurementUnit' = None) -> None:
-		DataValidator().validate_field_type(name, str)
-		DataValidator().validate_field_type(value, float)
-		DataValidator().validate_field_type(base_unit, MeasurementUnit, True)
+		DataValidator.validate_field_type(name, str)
+		DataValidator.validate_field_type(value, float)
+		DataValidator.validate_field_type(base_unit, MeasurementUnit, True)
 		super().__init__(name)
 		self.__value = value
 		self.__base_unit = base_unit
@@ -29,7 +29,7 @@ class MeasurementUnit(BaseModelName):
 	@value.setter
 	def value(self, value: float) -> None:
 		""" Set and validate the measurment unit value """
-		DataValidator().validate_field_type(value, float)
+		DataValidator.validate_field_type(value, float)
 		self.__value = value
 
 	@property
@@ -40,5 +40,5 @@ class MeasurementUnit(BaseModelName):
 	@base_unit.setter
 	def base_unit(self, value: 'MeasurementUnit') -> None:
 		""" Set and validate the measurment unit base unit """
-		DataValidator().validate_field_type(value, MeasurementUnit)
+		DataValidator.validate_field_type(value, MeasurementUnit)
 		self.__base_unit = value

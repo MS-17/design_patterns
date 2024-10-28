@@ -19,7 +19,7 @@ class DataRepository(AbstractLogic):
 
 	@staticmethod
 	def nomenclature_group_key() -> str:
-		""" Get a nomenclature group key """
+		""" Get a nomenclature group key. Staticmethod """
 		return "nomenclature_group"
 
 	# @staticmethod

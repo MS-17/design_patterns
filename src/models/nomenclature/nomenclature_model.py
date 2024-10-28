@@ -16,10 +16,10 @@ class Nomenclature(BaseModelUniqueID):
 	def __init__(self, full_name: str | None = None, nomenclature_group: NomenclatureGroup | None = None,
 				measurement_unit: MeasurementUnit | None = None) -> None:
 		# super().__init__(name)
-		DataValidator().validate_field_type(full_name, str, True)
-		DataValidator().validate_length(full_name, 255)
-		DataValidator().validate_field_type(nomenclature_group, NomenclatureGroup, True)
-		DataValidator().validate_field_type(measurement_unit, MeasurementUnit, True)
+		DataValidator.validate_field_type(full_name, str, True)
+		DataValidator.validate_length(full_name, 255)
+		DataValidator.validate_field_type(nomenclature_group, NomenclatureGroup, True)
+		DataValidator.validate_field_type(measurement_unit, MeasurementUnit, True)
 		self.__full_name = full_name
 		self.__nomenclature_group = nomenclature_group
 		self.__measurement_unit = measurement_unit
@@ -32,8 +32,8 @@ class Nomenclature(BaseModelUniqueID):
 	@full_name.setter
 	def full_name(self, value: str) -> None:
 		""" Set and validate the nomenclature full name """
-		DataValidator().validate_field_type(value, str)
-		DataValidator().validate_length(value, 255)
+		DataValidator.validate_field_type(value, str)
+		DataValidator.validate_length(value, 255)
 		self.__full_name = value
 
 	@property
@@ -44,7 +44,7 @@ class Nomenclature(BaseModelUniqueID):
 	@nomenclature_group.setter
 	def nomenclature_group(self, value: NomenclatureGroup) -> None:
 		""" Set and validate the nomenclature group """
-		DataValidator().validate_field_type(value, NomenclatureGroup)
+		DataValidator.validate_field_type(value, NomenclatureGroup)
 		self.__nomenclature_group = value
 
 	@property
@@ -55,6 +55,15 @@ class Nomenclature(BaseModelUniqueID):
 	@measurement_unit.setter
 	def measurement_unit(self, value: MeasurementUnit) -> None:
 		""" Set and validate the nomenclature measurement unit """
-		DataValidator().validate_field_type(value, MeasurementUnit)
+		DataValidator.validate_field_type(value, MeasurementUnit)
 		self.__measurement_unit = value
 
+	@staticmethod
+	def create(full_name: str, n_group: NomenclatureGroup, m_unit: MeasurementUnit) -> 'Nomenclature':
+		""" Create a nomenclature instance. Factory staticmethod """
+		DataValidator.validate_field_type(full_name, str)
+		DataValidator.validate_length(full_name, 255)
+		DataValidator.validate_field_type(n_group, NomenclatureGroup)
+		DataValidator.validate_field_type(m_unit, MeasurementUnit)
+		instance = Nomenclature(full_name, n_group, m_unit)
+		return instance

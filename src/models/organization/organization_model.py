@@ -28,8 +28,8 @@ class Organization(BaseModelName):
 	@inn.setter
 	def inn(self, value: str) -> None:
 		""" Set and validate INN """
-		DataValidator().validate_field_type(value, str)
-		DataValidator().validate_length(value, 12)
+		DataValidator.validate_field_type(value, str)
+		DataValidator.validate_length(value, 12)
 		self.__inn = value
 
 	@property
@@ -40,8 +40,8 @@ class Organization(BaseModelName):
 	@bik.setter
 	def bik(self, value: str) -> None:
 		""" Set and validate BIK """
-		DataValidator().validate_field_type(value, str)
-		DataValidator().validate_length(value, 9)
+		DataValidator.validate_field_type(value, str)
+		DataValidator.validate_length(value, 9)
 		self.__bik = value
 	
 	@property
@@ -52,8 +52,8 @@ class Organization(BaseModelName):
 	@bank_account.setter
 	def bank_account(self, value: str) -> None:
 		""" Set and validate bank account """
-		DataValidator().validate_field_type(value, str)
-		DataValidator().validate_length(value, 11)
+		DataValidator.validate_field_type(value, str)
+		DataValidator.validate_length(value, 11)
 		self.__bank_account = value
 	
 	@property
@@ -64,6 +64,6 @@ class Organization(BaseModelName):
 	@ownership_form.setter
 	def ownership_form(self, value: str) -> None:
 		""" Set and validate ownership form """
-		DataValidator().validate_field_type(value, str)
-		DataValidator().validate_length(value, 5)
+		DataValidator.validate_field_type(value, str)
+		DataValidator.validate_length(value, 5)
 		self.__ownership_form = value

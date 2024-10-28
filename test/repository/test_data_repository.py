@@ -15,7 +15,7 @@ class TestDataRepository:
 		assert dr.data == {}
 
 	def test_nomenclature_group_key_staticmethod(self):
-		assert DataRepository().nomenclature_group_key() == "nomenclature_group"
+		assert DataRepository.nomenclature_group_key() == "nomenclature_group"
 
 	def test_error_text_getter_setter(self):
 		message = "Error text"

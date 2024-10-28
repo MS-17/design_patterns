@@ -11,6 +11,7 @@ class DataValidator:
 	def validate_field_type(value: Any, type_: object, nullable: bool = False) -> bool:
 		"""
 		Check if the value is of the given type\n
+		Staticmethod\n
 		value: Any - an object\n
 		type_: object - an expected object type\n
 		nullable: bool = False - state if value can be of None type or not
@@ -23,6 +24,7 @@ class DataValidator:
 	def validate_length(value: Any, len_: int | None = None) -> bool:
 		"""
 		Check if the value length is less than or equal the provided length\n
+		Staticmethod\n
 		value: Any - an object\n
 		len_: int | None - an object expected length\n
 		"""

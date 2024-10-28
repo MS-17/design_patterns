@@ -52,3 +52,26 @@ class TestNomenclatureModel:
 			nm.measurement_unit = True
 		with pytest.raises(ArgumentException):
 			nm.nomenclature_group = {}
+
+	def test_create(self):
+		name = "name"
+		n_group = NomenclatureGroup()
+		m_unit = MeasurementUnit("gram", 1.0)
+		n = Nomenclature.create(name, n_group, m_unit)
+		assert n is not None
+		assert n.full_name == name
+		assert n.nomenclature_group == n_group
+		assert n.measurement_unit == m_unit
+
+	def test_create_validation(self):
+		name = "name"
+		n_group = NomenclatureGroup()
+		m_unit = MeasurementUnit("gram", 1.0)
+		with pytest.raises(ArgumentException):
+			Nomenclature.create(1, n_group, m_unit)
+		with pytest.raises(ArgumentException):
+			Nomenclature.create("1", True, m_unit)
+		with pytest.raises(ArgumentException):
+			Nomenclature.create("1", n_group, {})
+		with pytest.raises(ArgumentException):
+			Nomenclature.create(256 * "1", n_group, m_unit)
