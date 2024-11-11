@@ -16,7 +16,7 @@ class TestStartService:
 		with pytest.raises(ArgumentException):
 			StartService(None)
 
-	def test(self):
+	def test_create(self):
 		dr = DataRepository()
 		s = StartService(dr)
 		s.create()

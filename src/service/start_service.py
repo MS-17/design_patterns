@@ -13,17 +13,18 @@ class StartService(AbstractLogic):
 	settings_manager: SettingsManager - a settings manager instance
 	"""
 
-	def __init__(self, repository: DataRepository): #, settings_manager: SettingsManager):
+	def __init__(self, repository: DataRepository) -> None: #, settings_manager: SettingsManager):
 		super().__init__()
 		DataValidator.validate_field_type(repository, DataRepository)
 		# DataValidator().validate_field_type(settings_manager, SettingsManager)
 		# self.__settings_manager = settings_manager
 		self.__repository = repository
 
-	def __create_nomenclature_groups(self):
+	def __create_nomenclature_groups(self) -> None:
 		""" Generate a default set of the nomenclature groups """
-		items = [NomenclatureGroup.create("Raw materials"), NomenclatureGroup.create("Goods")]
+		items = [NomenclatureGroup.create("Raw materials"), NomenclatureGroup.create("Goods")]	# raw materials - сырье, goods - продукция 
 		self.__repository.data[DataRepository.nomenclature_group_key()] = items
+		print(self.__repository.data)
 	
 	def __create_nomenclature(self):
 		""" Generate a default nomenclature configuration """
@@ -34,7 +35,7 @@ class StartService(AbstractLogic):
 		""" Generate a default set of the measurement units """
 		...
 
-	def create(self):
+	def create(self) -> None:
 		"""
 		Create a default configuration of the application nomenclature, nomenclature groups and measurement units\n
 		"""
@@ -43,5 +44,5 @@ class StartService(AbstractLogic):
 		self.__create_measurement_units()
 		# self.__create_recipe()
 
-	def set_exception(self, ex: Exception):
+	def set_exception(self, ex: Exception) -> None:
 		self._inner_set_exception(ex)

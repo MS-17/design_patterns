@@ -19,13 +19,15 @@ class DataRepository(AbstractLogic):
 
 	@staticmethod
 	def nomenclature_group_key() -> str:
-		""" Get a nomenclature group key. Staticmethod """
+		""" Get a nomenclature group key. Staticmethod. Key: nomenclature_group """
 		return "nomenclature_group"
 
-	# @staticmethod
-	# 	def nomenclature_group_key() -> str:
-	# 		return "nomencature_group"
+	@staticmethod
+	def nomenclature_key() -> str:
+		""" Get a nomenclature key. Staticmethod. Key: nomenclatures """		
+		return "nomenclatures"
 
 	def set_exception(self, ex: Exception) -> None:
 		""" Set an exception """
 		self._inner_set_exception(ex)
+	

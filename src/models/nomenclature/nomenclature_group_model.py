@@ -14,3 +14,6 @@ class NomenclatureGroup(BaseModelName):
 		item = NomenclatureGroup()
 		item.name = name
 		return item
+	
+	def __str__(self):
+		return f"{self.name}"
