@@ -27,6 +27,11 @@ class DataRepository(AbstractLogic):
 		""" Get a nomenclature key. Staticmethod. Key: nomenclatures """		
 		return "nomenclatures"
 
+	@staticmethod
+	def measurement_unit_key() -> str:
+		""" Get a measurement unit key. Staticmethod. Key: measurement_units """		
+		return "measurement_units"
+
 	def set_exception(self, ex: Exception) -> None:
 		""" Set an exception """
 		self._inner_set_exception(ex)
