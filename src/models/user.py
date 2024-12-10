@@ -1,3 +1,7 @@
+from src.exceptions.argument_exception import ArgumentException
+from src.validation.data_validator import DataValidator
+
+
 class User:
 	__code: str = ""
 	__login: str = ""
@@ -46,7 +50,12 @@ class User:
 		self.__email = value
 
 	@staticmethod
-	def create(code: str, login: str, password: str, name: str, email: str):
+	def create(code: str = "", login: str = "", password: str = "", name: str = "", email: str = ""):
+		DataValidator.validate_field_type(code, str)
+		DataValidator.validate_field_type(login, str)
+		DataValidator.validate_field_type(password, str)
+		DataValidator.validate_field_type(name, str)
+		DataValidator.validate_field_type(email, str)
 		instance = User()
 		instance.code = code
 		instance.login = login

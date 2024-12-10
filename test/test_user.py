@@ -1,4 +1,6 @@
 from src.models.user import User
+import pytest
+from src.exceptions.argument_exception import ArgumentException
 
 
 class TestUser:
@@ -32,3 +34,16 @@ class TestUser:
 		assert u.password == password
 		assert u.name == name
 		assert u.email == email
+
+	def test_empty_arg(self):
+		with pytest.raises(ArgumentException):
+			u = User.create(1)
+		with pytest.raises(ArgumentException):
+			u = User.create("", 1)
+		with pytest.raises(ArgumentException):
+			u = User.create("", "", 1)
+		with pytest.raises(ArgumentException):
+			u = User.create("", "", "", 1)
+		with pytest.raises(ArgumentException):
+			u = User.create("", "", "", "", 1)
+	
